@@ -1,4 +1,5 @@
 eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
 
 # Source manjaro-zsh-configuration
 if [[ -e /usr/share/zsh/manjaro-zsh-config ]]; then
@@ -8,6 +9,9 @@ fi
 if [[ -e /usr/share/zsh/manjaro-zsh-prompt ]]; then
   source /usr/share/zsh/manjaro-zsh-prompt
 fi
+
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
 
 # Aliases
 alias k="kubectl"

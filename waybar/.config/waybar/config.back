@@ -1,0 +1,38 @@
+    {
+        "layer": "top",
+        "position": "top",
+        "modules-left": ["hyprland/workspaces", "hyprland/window"],
+        "modules-center": ["clock"],
+        "modules-right": ["pulseaudio", "network", "clock"],
+
+        "hyprland/workspaces": {
+            "format": "{name}",
+            "sort-by-number": true
+        },
+        "hyprland/window": {
+            "format": "{title}"
+        },
+        "clock": {
+            "format": "{:%a, %d.%m %H:%M}",
+            "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+        },
+        "battery": {
+            "format": "{capacity}% {icon}",
+            "format-icons": ["", "", "", "", ""]
+        },
+        "pulseaudio": {
+            "format": "{volume}% {icon}",
+            "format-icons": {"default": ["", "", ""]},
+            "on-click": "pavucontrol"
+        },
+        "network": {
+            "format-wifi": " {essid}",
+            "format-ethernet": " {ifname}",
+            "format-disconnected": "⚠ Disconnected"
+        },
+        "custom/updates": {
+            "format": "Updates: {}",
+            "exec": "checkupdates | wc -l",
+            "interval": 3600
+        }
+    }
