@@ -1,6 +1,8 @@
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 
+MOZ_ENABLE_WAYLAND=1
+
 # Source manjaro-zsh-configuration
 if [[ -e /usr/share/zsh/manjaro-zsh-config ]]; then
   source /usr/share/zsh/manjaro-zsh-config
