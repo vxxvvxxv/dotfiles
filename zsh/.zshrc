@@ -28,6 +28,9 @@ alias q="exit"
 alias gptd="cd $1 nvim"
 alias l="ls -la"
 alias pps="podman ps"
+alias lg="lazygit"
+alias y="yazi"
+alias t="task"
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="/home/sokol/.rd/bin:$PATH"
