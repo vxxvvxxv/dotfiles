@@ -39,7 +39,8 @@ hyprmocha \
 hyprpaper \
 waybar \
 wofi \
-catppuccin-cursors-mocha
+catppuccin-cursors-mocha \
+swaync
 
 # work
 yay -S aws-cli \
