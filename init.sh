@@ -24,7 +24,8 @@ ripgrep \
 tree-sitter \
 git \
 curl \
-wget
+wget \
+stow
 
 # env
 yay -S hyprland \
