@@ -1,10 +1,11 @@
 # yay
-sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
+# sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
 
 # tools
 yay -S neovim \
 ttf-nerd-fonts-symbols \
 ghostty \
+foot \
 keepassxc \
 lazygit \
 lazysql \
@@ -25,7 +26,9 @@ tree-sitter \
 git \
 curl \
 wget \
-stow
+stow \
+starship \
+zoxide
 
 # env
 yay -S hyprland \
