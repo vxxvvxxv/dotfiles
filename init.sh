@@ -38,7 +38,8 @@ hyprlock \
 hyprmocha \
 hyprpaper \
 waybar \
-wofi
+wofi \
+catppuccin-cursors-mocha
 
 # work
 yay -S aws-cli \
