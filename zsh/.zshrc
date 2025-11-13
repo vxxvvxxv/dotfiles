@@ -31,6 +31,8 @@ alias pps="podman ps"
 alias lg="lazygit"
 alias y="yazi"
 alias t="task"
+alias uuid="uuidgen"
+alias ts="date +%s"
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="/home/sokol/.rd/bin:$PATH"
