@@ -1,50 +1,26 @@
-# yay
-# sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
+#!/usr/bin/env bash
+set -euo pipefail
 
-# tools
-yay -S neovim \
-ttf-nerd-fonts-symbols \
-ghostty \
-foot \
-keepassxc \
-lazygit \
-lazysql \
-lazydocker \
-lazyssh \
-k9s \
-fzf \
-yazi \
-go \
-golangci-lint \
-rust \
-python \
-nodejs \
-bottom \
-gdu \
-ripgrep \
-tree-sitter \
-git \
-curl \
-wget \
-stow \
-starship \
-zoxide
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-# env
-yay -S hyprland \
-hyprcwd \
-hypridle \
-hyprlock \
-hyprmocha \
-hyprpaper \
-waybar \
-wofi \
-catppuccin-cursors-mocha \
-swaync
+OS=""
+if [ -f /etc/os-release ]; then
+  . /etc/os-release
+  OS="$ID"
+fi
 
-# work
-yay -S aws-cli \
-aws-session-manager-plugin \
-google-chrome \
-slack-desktop \
-postman
+case "$OS" in
+  arch)
+    bash "$SCRIPT_DIR/_scripts/arch/install.sh"
+    bash "$SCRIPT_DIR/_scripts/arch/setup_zsh.sh"
+    ;;
+  ubuntu)
+    bash "$SCRIPT_DIR/_scripts/ubuntu/install.sh"
+    bash "$SCRIPT_DIR/_scripts/ubuntu/setup_zsh.sh"
+    ;;
+  *)
+    echo "Unsupported OS: $OS"; exit 1
+    ;;
+esac
+
+bash "$SCRIPT_DIR/_scripts/stow.sh"
