@@ -17,4 +17,5 @@ end
 
 require "lazy_setup"
 require "polish"
+require'lspconfig'.protols.setup{}
 
