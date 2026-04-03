@@ -118,6 +118,16 @@ else
     rm -f /tmp/lazydocker
 fi
 
+# --- kubectl ---
+echo "-> kubectl"
+if command -v kubectl &>/dev/null; then
+    echo "   already installed: $(kubectl version --client --short 2>/dev/null || kubectl version --client)"
+else
+    curl -fsSL "https://dl.k8s.io/release/$(curl -fsSL https://dl.k8s.io/release/stable.txt)/bin/linux/${GOARCH}/kubectl" -o /tmp/kubectl
+    sudo install /tmp/kubectl /usr/local/bin/kubectl
+    rm -f /tmp/kubectl
+fi
+
 # --- k9s ---
 echo "-> k9s"
 if command -v k9s &>/dev/null; then
@@ -224,6 +234,14 @@ else
     else
         echo "   NOTE: Slack snap not available for arm64, install via Flatpak or web app"
     fi
+fi
+
+# --- telegram ---
+echo "-> telegram-desktop"
+if command -v telegram-desktop &>/dev/null || snap list telegram-desktop &>/dev/null 2>&1; then
+    echo "   already installed"
+else
+    sudo snap install telegram-desktop
 fi
 
 # --- postman ---
