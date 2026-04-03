@@ -35,11 +35,11 @@ alias uuid="uuidgen"
 alias ts="date +%s"
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/home/sokol/.rd/bin:$PATH"
+export PATH="$HOME/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
 # pnpm
-export PNPM_HOME="/home/sokol/.local/share/pnpm"
+export PNPM_HOME="$HOME/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
@@ -50,10 +50,10 @@ esac
 export PATH=$PATH:/usr/local/go/bin
 
 # Go bin
-export PATH="/home/sokol/go/bin:$PATH"
+export PATH="$HOME/go/bin:$PATH"
 
 # Gem bin
-export PATH="/home/sokol/.local/share/gem/ruby/3.3.0/bin:$PATH"
+export PATH="$HOME/.local/share/gem/ruby/3.3.0/bin:$PATH"
 
 # Set gpg for ssh
 unset SSH_AGENT_PID
@@ -64,3 +64,4 @@ fi
 export GPG_TTY=$(tty)
 gpg-connect-agent updatestartuptty /bye >/dev/null
 
+export PATH="$HOME/.local/bin:$PATH"
