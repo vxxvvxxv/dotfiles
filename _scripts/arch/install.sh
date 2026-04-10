@@ -14,6 +14,7 @@ lazygit \
 lazysql \
 lazydocker \
 lazyssh \
+vi-mongo \
 kubectl \
 k9s \
 fzf \
