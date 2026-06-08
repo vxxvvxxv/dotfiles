@@ -46,6 +46,7 @@ return {
     config = {
       -- clangd = { capabilities = { offsetEncoding = "utf-8" } },
     },
+    lsp_handlers = {},  -- отключаем deprecated handlers из AstroNvim
     -- customize how language servers are attached
     handlers = {
       -- a function without a key is simply the default handler, functions take two parameters, the server name and the configured options table for that server
@@ -95,6 +96,10 @@ return {
         },
       },
     },
+    init = function()
+      -- новый способ задать границы hover/signatureHelp в Nvim 0.11+
+      vim.o.winborder = "rounded"
+    end,
     -- A custom `on_attach` function to be run after the default `on_attach` function
     -- takes two parameters `client` and `bufnr`  (`:h lspconfig-setup`)
     on_attach = function(client, bufnr)

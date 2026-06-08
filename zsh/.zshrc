@@ -15,7 +15,11 @@ fi
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
 
-# Aliases
+
+# ================================================
+# Alias
+# ================================================
+
 alias k="kubectl"
 alias task="go-task"
 alias cl="clear"
@@ -33,27 +37,33 @@ alias y="yazi"
 alias t="task"
 alias uuid="uuidgen"
 alias ts="date +%s"
+alias gg="git clone"
+
+# ================================================
+# PATH
+# ================================================
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/home/sokol/.rd/bin:$PATH"
+export PATH="$HOME/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
 # pnpm
-export PNPM_HOME="/home/sokol/.local/share/pnpm"
+export PNPM_HOME="$HOME/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
 
-# Go (local)
-export PATH=$PATH:/usr/local/go/bin
-
+# Local (bin)
+export PATH="$HOME/.local/bin:$PATH"
+# Local (Go)
+export PATH="/usr/local/go/bin:$PATH"
 # Go bin
-export PATH="/home/sokol/go/bin:$PATH"
+export PATH="$HOME/go/bin:$PATH"
 
 # Gem bin
-export PATH="/home/sokol/.local/share/gem/ruby/3.3.0/bin:$PATH"
+export PATH="$HOME/.local/share/gem/ruby/3.3.0/bin:$PATH"
 
 # Set gpg for ssh
 unset SSH_AGENT_PID
@@ -64,3 +74,12 @@ fi
 export GPG_TTY=$(tty)
 gpg-connect-agent updatestartuptty /bye >/dev/null
 
+# Gvm
+[[ -s "/home/sokol/.gvm/scripts/gvm" ]] && source "/home/sokol/.gvm/scripts/gvm"
+
+# Work configs
+source ~/.zshrc_work
+
+
+# Added by Antigravity CLI installer
+export PATH="/home/sokol/.local/bin:$PATH"

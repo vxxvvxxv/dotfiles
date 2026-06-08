@@ -2,26 +2,14 @@
   "position": "top",
   // "height": 40,
   // "spacing": 4,
-  "modules-left": [
-    "hyprland/workspaces"
-  ],
-  "modules-center": [
-    "hyprland/window"
-  ],
+  "modules-left": ["hyprland/workspaces"],
+  "modules-center": ["hyprland/window"],
   "modules-right": [
-        "tray",
-        // "idle_inhibitor",
-        "pulseaudio",
-        // "network",
-        "temperature",
-        "hyprland/language",
-        "battery",
-        "battery#bat2",
-        "clock"
-    // "network", 
-    // "pulseaudio", 
-    // "battery", 
-    // "clock"
+    "tray",
+    "pulseaudio",
+    "temperature",
+    "hyprland/language",
+    "clock",
   ],
   // "hyprland/workspaces": {
   //       "disable-scroll": true,
@@ -34,23 +22,23 @@
   //           "default": ""
   //       }
   // },
- 
-    "tray": { 
-        "icon-size": 21,
-        "spacing": 10,
-        "show-passive-items": true
-        // "icons": {
-        //     "blueman": "bluetooth",
-        //     "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
-        // }
-    },
-    // "idle_inhibitor": {
-    //     "format": "{icon}",
-    //     "format-icons": {
-    //         "activated": "",
-    //         "deactivated": ""
-    //     }
-    // },
+
+  "tray": {
+    "icon-size": 21,
+    "spacing": 10,
+    "show-passive-items": true,
+    // "icons": {
+    //     "blueman": "bluetooth",
+    //     "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
+    // }
+  },
+  // "idle_inhibitor": {
+  //     "format": "{icon}",
+  //     "format-icons": {
+  //         "activated": "",
+  //         "deactivated": ""
+  //     }
+  // },
   // "clock": {
   //   "format": "<span foreground='#f5c2e7'>   </span>{:%a %d %H:%M}",
   //   "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
@@ -77,14 +65,14 @@
   //   "format-disconnected": "<span size='13000' foreground='#f5e0dc'>  </span>Disconnected",
   //   "tooltip-format-wifi": "Signal Strenght: {signalStrength}%"
   // },
-    // "network": {
-    //     "format-wifi": "   {essid} ({signalStrength}%)",
-    //     "format-ethernet": "{ipaddr}/{cidr} ",
-    //     "tooltip-format": "{ifname} via {gwaddr} ",
-    //     "format-linked": "{ifname} (No IP) ",
-    //     "format-disconnected": "Disconnected ⚠",
-    //   	"on-click": "sh ~/scripts/rofi-wifi-menu/rofi-wifi-menu.sh"
-    // },
+  // "network": {
+  //     "format-wifi": "   {essid} ({signalStrength}%)",
+  //     "format-ethernet": "{ipaddr}/{cidr} ",
+  //     "tooltip-format": "{ifname} via {gwaddr} ",
+  //     "format-linked": "{ifname} (No IP) ",
+  //     "format-disconnected": "Disconnected ⚠",
+  //   	"on-click": "sh ~/scripts/rofi-wifi-menu/rofi-wifi-menu.sh"
+  // },
   // "pulseaudio": {
   //     "format": "{icon}  {volume}%",
   //     "format-muted": "",
@@ -93,54 +81,55 @@
   //     },
   //     "on-click": "pavucontrol"
   // }
-    "pulseaudio": {
-        "format": "{icon}  {volume}%",
-        "format-bluetooth": "{icon} {volume}%  {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": " {format_source}",
-        "format-source": " {volume}%",
-        "format-source-muted": "",
-        "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", "", ""]
-        },
-        "on-click": "pavucontrol"
+  "pulseaudio": {
+    "format": "{icon}  {volume}%",
+    "format-bluetooth": "{icon} {volume}%  {format_source}",
+    "format-bluetooth-muted": " {icon} {format_source}",
+    "format-muted": " {format_source}",
+    "format-source": " {volume}%",
+    "format-source-muted": "",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", "", ""],
     },
-    "temperature": {
-        "interval": 10,
-        "hwmon-path": "/sys/devices/platform/coretemp.0/hwmon/hwmon4/temp1_input",
-        "critical-threshold": 100,
-        "format-critical": " {temperatureC}",
-        "format": " {temperatureC}°C"
-    },
-    "hyprland/language": {
-       "format": "  {}",
-       "format-en": "EN",
-       "format-ru": "RU"
-    },
-    "battery": {
-        "states": {
-            "warning": 30,
-            "critical": 15
-        },
-        "format": "{icon}  {capacity}%",
-        "format-full": "{icon}  {capacity}%",
-        "format-charging": "  {capacity}%",
-        "format-plugged": "  {capacity}%",
-        "format-alt": "{time}  {icon}",
-        "format-icons": ["", "", "", "", ""]
-    },
-    "battery#bat2": {
-        "bat": "BAT2"
-    },
-    "clock": {
-        "format": "{:%e %B | %H:%M} ",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d}"
-    }
+    "on-click": "pavucontrol",
+  },
+  "temperature": {
+    "interval": 10,
+    "hwmon-path": "/sys/devices/platform/coretemp.0/hwmon/hwmon4/temp1_input",
+    "critical-threshold": 100,
+    "format-critical": " {temperatureC}",
+    "format": " {temperatureC}°C",
+  },
+  "hyprland/language": {
+    "format": "  {}",
+    "format-en": "EN",
+    "format-ru": "RU",
+  },
+  // "battery": {
+  //   "states": {
+  //     "warning": 30,
+  //     "critical": 15,
+  //   },
+  //   "format": "{icon}  {capacity}%",
+  //   "format-full": "{icon}  {capacity}%",
+  //   "format-charging": "  {capacity}%",
+  //   "format-plugged": "  {capacity}%",
+  //   "format-alt": "{time}  {icon}",
+  //   "format-icons": ["", "", "", "", ""],
+  // },
+  // "battery#bat2": {
+  //   "bat": "BAT2",
+  // },
+  "clock": {
+    "format": "{:%e %B, %a | %H:%M}",
+    "locale": "ru_RU.UTF-8",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format-alt": "{:%Y-%m-%d}",
+  },
 }

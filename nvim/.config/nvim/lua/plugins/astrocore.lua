@@ -24,6 +24,10 @@ return {
       virtual_text = true,
       underline = true,
     },
+    -- Fix jump
+    jump = {
+      on_jump = function(_, bufnr) vim.diagnostic.open_float { bufnr = bufnr, scope = "cursor" } end,
+    },
     -- vim options can be configured here
     options = {
       opt = { -- vim.opt.<key>
