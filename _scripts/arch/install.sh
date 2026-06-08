@@ -14,6 +14,8 @@ lazygit \
 lazysql \
 lazydocker \
 lazyssh \
+vi-mongo \
+kubectl \
 k9s \
 fzf \
 yazi \
@@ -50,4 +52,5 @@ yay -S aws-cli-v2 \
 aws-session-manager-plugin \
 google-chrome \
 slack-desktop \
-postman-bin
+postman-bin \
+telegram-desktop

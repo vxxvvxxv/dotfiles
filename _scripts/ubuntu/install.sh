@@ -3,8 +3,8 @@ set -euo pipefail
 
 ARCH=$(dpkg --print-architecture)  # amd64 | arm64
 case "$ARCH" in
-    amd64) GOARCH="amd64"; LAZYGIT_ARCH="linux_x86_64"; NVIM_ARCH="x86_64"; LAZYDOCKER_ARCH="Linux_x86_64"; K9S_ARCH="Linux_amd64"; AWS_ARCH="x86_64"; YAZI_ARCH="x86_64-unknown-linux-gnu" ;;
-    arm64) GOARCH="arm64"; LAZYGIT_ARCH="linux_arm64"; NVIM_ARCH="arm64"; LAZYDOCKER_ARCH="Linux_arm64"; K9S_ARCH="Linux_arm64"; AWS_ARCH="aarch64"; YAZI_ARCH="aarch64-unknown-linux-gnu" ;;
+    amd64) GOARCH="amd64"; LAZYGIT_ARCH="linux_x86_64"; NVIM_ARCH="x86_64"; LAZYDOCKER_ARCH="Linux_x86_64"; K9S_ARCH="Linux_amd64"; AWS_ARCH="x86_64"; YAZI_ARCH="x86_64-unknown-linux-gnu"; VIMONGO_ARCH="Linux_x86_64" ;;
+    arm64) GOARCH="arm64"; LAZYGIT_ARCH="linux_arm64"; NVIM_ARCH="arm64"; LAZYDOCKER_ARCH="Linux_arm64"; K9S_ARCH="Linux_arm64"; AWS_ARCH="aarch64"; YAZI_ARCH="aarch64-unknown-linux-gnu"; VIMONGO_ARCH="Linux_arm64" ;;
     *)     echo "Unsupported architecture: $ARCH"; exit 1 ;;
 esac
 
@@ -118,6 +118,16 @@ else
     rm -f /tmp/lazydocker
 fi
 
+# --- kubectl ---
+echo "-> kubectl"
+if command -v kubectl &>/dev/null; then
+    echo "   already installed: $(kubectl version --client --short 2>/dev/null || kubectl version --client)"
+else
+    curl -fsSL "https://dl.k8s.io/release/$(curl -fsSL https://dl.k8s.io/release/stable.txt)/bin/linux/${GOARCH}/kubectl" -o /tmp/kubectl
+    sudo install /tmp/kubectl /usr/local/bin/kubectl
+    rm -f /tmp/kubectl
+fi
+
 # --- k9s ---
 echo "-> k9s"
 if command -v k9s &>/dev/null; then
@@ -224,6 +234,25 @@ else
     else
         echo "   NOTE: Slack snap not available for arm64, install via Flatpak or web app"
     fi
+fi
+
+# --- telegram ---
+echo "-> telegram-desktop"
+if command -v telegram-desktop &>/dev/null || snap list telegram-desktop &>/dev/null 2>&1; then
+    echo "   already installed"
+else
+    sudo snap install telegram-desktop
+fi
+
+# --- vi-mongo ---
+echo "-> vi-mongo"
+if command -v vi-mongo &>/dev/null; then
+    echo "   already installed"
+else
+    VIMONGO_VERSION=$(curl -s https://api.github.com/repos/kopecmaciej/vi-mongo/releases/latest | grep -oP '"tag_name":\s*"\K[^"]+')
+    curl -fsSL "https://github.com/kopecmaciej/vi-mongo/releases/download/${VIMONGO_VERSION}/vi-mongo_${VIMONGO_ARCH}.tar.gz" | tar xz -C /tmp vi-mongo
+    sudo install /tmp/vi-mongo /usr/local/bin/vi-mongo
+    rm -f /tmp/vi-mongo
 fi
 
 # --- postman ---

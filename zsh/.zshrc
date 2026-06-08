@@ -65,6 +65,9 @@ export PATH="$HOME/go/bin:$PATH"
 # Gem bin
 export PATH="$HOME/.local/share/gem/ruby/3.3.0/bin:$PATH"
 
+# Added by Antigravity CLI installer
+export PATH="/home/sokol/.local/bin:$PATH"
+
 # Set gpg for ssh
 unset SSH_AGENT_PID
 if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
@@ -81,5 +84,3 @@ gpg-connect-agent updatestartuptty /bye >/dev/null
 source ~/.zshrc_work
 
 
-# Added by Antigravity CLI installer
-export PATH="/home/sokol/.local/bin:$PATH"
