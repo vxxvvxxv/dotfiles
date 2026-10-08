@@ -66,7 +66,7 @@ export PATH="$HOME/go/bin:$PATH"
 export PATH="$HOME/.local/share/gem/ruby/3.3.0/bin:$PATH"
 
 # Added by Antigravity CLI installer
-export PATH="/home/sokol/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 # Set gpg for ssh
 unset SSH_AGENT_PID
@@ -78,7 +78,10 @@ export GPG_TTY=$(tty)
 gpg-connect-agent updatestartuptty /bye >/dev/null
 
 # Gvm
-[[ -s "/home/sokol/.gvm/scripts/gvm" ]] && source "/home/sokol/.gvm/scripts/gvm"
+[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
+
+# EDITOR
+EDITOR=nvim
 
 # Work configs
 source ~/.zshrc_work
